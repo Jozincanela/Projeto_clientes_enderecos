@@ -42,7 +42,7 @@ td{
     transform: translateX(-50%) translateY(-50%);
     background-color: white;
     width: 350px;
-    height: 890px;
+    height: 900px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,4 +111,9 @@ td{
 
 #Novo_Cliente{
     border-radius: 5px;
+}
+
+#label_erro{
+    text-align: center;
+    color: red;
 }
