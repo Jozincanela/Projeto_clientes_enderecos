@@ -101,8 +101,6 @@ let Todos_Clientes = async()=>{
     }
 }
 
-
-
 let Novo_cliente = async() =>{
     let dialog_criar = document.createElement("dialog");
     dialog_criar.id = "Dialog_criar";
@@ -111,6 +109,9 @@ let Novo_cliente = async() =>{
 
     let Botoes = document.createElement("div")
     Botoes.id = "Botoes_criar"
+
+    let Label_erro = document.createElement("h5")
+    Label_erro.id="label_erro"
 
     let formulario_criar = document.createElement("form")
     formulario_criar.method = "dialog"
@@ -194,39 +195,40 @@ let Novo_cliente = async() =>{
     input_Complemento.className ="Atributos_formulario"
 
     let botao_Enviar =  document.createElement("button")
-    botao_Enviar.addEventListener("click", async ()=>{
+    botao_Enviar.addEventListener("click", async (e)=>{
+        e.preventDefault()
         if(input_Nome.value== ""){
-            alert("Nome Invalido")
+            Label_erro.innerText = "Nome Invalido!"
         }
-        else if(input_Cpf.value== "" || input_Cpf.value.length > 11 || verificador_de_Numero(input_Cpf.value)){
-            alert("Cpf Invalido")
+        else if(input_Cpf.value== "" || input_Cpf.value.length > 11 || !verificador_de_Numero(input_Cpf.value)){
+            Label_erro.innerText = "Cpf Invalido!"
         }
         else if(input_Email.value== "" ){
-            alert("Email Invalido")
+            Label_erro.innerText = "Email Invalido!"
         }
-        else if(input_Telefone.value== "" || input_Telefone.value.length > 12 || verificador_de_Numero(input_Telefone.value)){
-            alert("Telefone Invalido")
+        else if(input_Telefone.value== "" || input_Telefone.value.length > 12 || !verificador_de_Numero(input_Telefone.value)){
+            Label_erro.innerText = "Telefone Invalido!"
         }
         else if(input_Data_nascimento.value== "" || input_Data_nascimento.value.length > 8){
-            alert("Data de Nascimento Invalida")
+            Label_erro.innerText ='Data de nascimento invalida!'
         }
-        else if(input_Cep.Value== "" || input_Cep.Value.length > 8 || verificador_de_Numero(input_Cep.Value)){
-            alert("Cep Invalido")
+        else if(input_Cep.value== "" || input_Cep.value.length > 8 || !verificador_de_Numero(input_Cep.value)){
+            Label_erro.innerText = "Cep invalido!"
         }
-        else if(input_Logradouro.Value== "" ){
-            alert("Logradouro Invalido")
+        else if(input_Logradouro.value== "" ){
+            Label_erro.innerText = "Logradouro Invalido!"
         }
         else if(input_Bairro.value== "" ){
-            alert("Bairro Invalido")
+            Label_erro.innerText = "Bairro Invalido!"
         }
         else if(input_Cidade.value== ""){
-            alert("Cidade Invalida")
+            Label_erro.innerText = "Cidade Invalida"
         }
         else if(input_Estado.value== ""){
-            alert("Estado Invalido")
+            Label_erro.innerText = "Estado Invalido!"
         }
         else if(input_Complemento.value== ""){
-            alert("Complemento Invalido")
+            Label_erro.innerText = "Complemento Invalido!"
         }
         else{
             let Novo_Cliente = 
@@ -284,6 +286,7 @@ let Novo_cliente = async() =>{
     formulario_criar.appendChild(input_Estado)
     formulario_criar.appendChild(Label_Complemento)
     formulario_criar.appendChild(input_Complemento)
+    formulario_criar.appendChild(Label_erro)
     Botoes.appendChild(botao_fechar)
     Botoes.appendChild(botao_Enviar)
     formulario_criar.appendChild(Botoes)
@@ -311,6 +314,9 @@ let Atualizar_cliente = async (id, Nome, Cpf, Email,Telefone,Data_nascimento,Cep
 
     let Botoes = document.createElement("div")
     Botoes.id = "Botoes_att"
+
+    let Label_erro = document.createElement("h5")
+    Label_erro.id="label_erro"
 
     let formulario_att = document.createElement("form")
     formulario_att.method = "dialog"
@@ -405,39 +411,40 @@ let Atualizar_cliente = async (id, Nome, Cpf, Email,Telefone,Data_nascimento,Cep
     input_Complemento.className ="Atributos_formulario"
 
     let botao_Enviar =  document.createElement("button")
-    botao_Enviar.addEventListener("click", async ()=>{
+    botao_Enviar.addEventListener("click", async (e)=>{
+        e.preventDefault()
         if(input_Nome== ""){
-            alert("Nome Invalido")
+            Label_erro.innerText = "Nome Invalido"
         }
-        else if(input_Cpf== "" || input_Cpf.length > 11 || verificador_de_Numero(input_Cpf)){
-            alert("Cpf Invalido")
+        else if(input_Cpf== "" || input_Cpf.length > 11 || !verificador_de_Numero(input_Cpf)){
+            Label_erro.innerText = "Cpf Invalido"
         }
         else if(input_Email== "" ){
-            alert("Email Invalido")
+            Label_erro.innerText = "Email Invalido"
         }
-        else if(input_Telefone== "" || input_Telefone.length > 12 || verificador_de_Numero(input_Telefone)){
-            alert("Telefone Invalido")
+        else if(input_Telefone== "" || input_Telefone.length > 12 || !verificador_de_Numero(input_Telefone)){
+            Label_erro.innerText = "Telefone Invalido"
         }
         else if(input_Data_nascimento== "" || input_Data_nascimento.length > 8){
-            alert("Data de Nascimento Invalida")
+            Label_erro.innerText = "Data de Nascimento Invalida"
         }
-        else if(input_Cep== "" || input_Cep.length > 8 || verificador_de_Numero(input_Cep)){
-            alert("Cep Invalido")
+        else if(input_Cep== "" || input_Cep.length > 8 || !verificador_de_Numero(input_Cep)){
+            Label_erro.innerText = "Cep Invalido"
         }
         else if(input_Logradouro== "" ){
-            alert("Logradouro Invalido")
+            Label_erro.innerText = "Logradouro Invalido"
         }
         else if(input_Bairro== "" ){
-            alert("Bairro Invalido")
+            Label_erro.innerText = "Bairro Invalido"
         }
         else if(input_Cidade== ""){
-            alert("Cidade Invalida")
+            Label_erro.innerText = "Cidade Invalida"
         }
         else if(input_Estado== ""){
-            alert("Estado Invalido")
+            Label_erro.innerText = "Estado Invalido"
         }
         else if(input_Complemento== ""){
-            alert("Complemento Invalido")
+            Label_erro.innerText = "Complemento Invalido"
         }
         else{
             let Att_Cliente = 
@@ -497,6 +504,7 @@ let Atualizar_cliente = async (id, Nome, Cpf, Email,Telefone,Data_nascimento,Cep
     formulario_att.appendChild(input_Estado)
     formulario_att.appendChild(Label_Complemento)
     formulario_att.appendChild(input_Complemento)
+    formulario_att.appendChild(Label_erro)
     Botoes.appendChild(botao_fechar)
     Botoes.appendChild(botao_Enviar)
     formulario_att.appendChild(Botoes)
