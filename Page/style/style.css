@@ -1,0 +1,114 @@
+*{
+    padding: 0%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#div_tabela{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+#Tabela_Geral{
+    width: 75%;
+    height: fit-content;
+
+}
+#Tabela_Geral, td{
+    border: 1px solid #000000;
+
+}   
+#Tabela_Geral thead, tfoot{
+    background-color: #333;
+    color: white;
+}
+#id_cliente{
+    width: 30px;
+}
+td{
+    width: 100px;
+    text-align: center;
+}
+
+#Div_dialog_att, #Div_dialog_criar{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-color: white;
+    width: 350px;
+    height: 890px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+#Formulario_att, #Formulario_criar{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 300px;
+    border-bottom: 10px;
+    border-top: 20px;
+}
+
+#Botoes_att, #Botoes_criar{
+    display: flex;
+    flex-direction: row;
+    gap: 100px; 
+    justify-content: center;
+}
+
+.Botao_submit{
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    width: 55px;
+    height: 20px;
+}
+
+.Botao_fechar_dialog{
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    width: 55px;
+    height: 20px;
+}
+
+.Atributos_formulario{
+    border: 1px black solid;
+    border-radius: 5px;
+    height: 25px;
+}
+
+
+#Botao_delete{
+    width: 75px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    margin-top: 10px;
+}
+
+#Botao_att{
+    width: 75px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background-color: rgb(93, 93, 234);
+    color: white;
+
+}
+
+#Novo_Cliente{
+    border-radius: 5px;
+}
