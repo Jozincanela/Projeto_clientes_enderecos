@@ -253,6 +253,8 @@ let Novo_cliente = async() =>{
                 },
                 body: JSON.stringify(Novo_Cliente) 
             });
+            dialog_criar.close()
+            location. reload()
         }
 
     })
@@ -304,6 +306,7 @@ let Deletar_cliente = async (id) =>{
     const Response_Del_Cliente = await fetch(BASE_URL + "/" +id, {method: "DELETE", mode: 'cors' });
     const Del_Cliente = await Response_Del_Cliente.json();
     alert("Cliente apagado com sucesso!")
+    location.reload()
 }
 
 let Atualizar_cliente = async (id, Nome, Cpf, Email,Telefone,Data_nascimento,Cep,Logradouro, Bairro,Cidade, Estado, Complemento) =>{
@@ -413,37 +416,37 @@ let Atualizar_cliente = async (id, Nome, Cpf, Email,Telefone,Data_nascimento,Cep
     let botao_Enviar =  document.createElement("button")
     botao_Enviar.addEventListener("click", async (e)=>{
         e.preventDefault()
-        if(input_Nome== ""){
+        if(input_Nome.value== ""){
             Label_erro.innerText = "Nome Invalido"
         }
-        else if(input_Cpf== "" || input_Cpf.length > 11 || !verificador_de_Numero(input_Cpf)){
+        else if(input_Cpf.value== "" || input_Cpf.value.length > 11 || !verificador_de_Numero(input_Cpf.value)){
             Label_erro.innerText = "Cpf Invalido"
         }
-        else if(input_Email== "" ){
+        else if(input_Email.value== "" ){
             Label_erro.innerText = "Email Invalido"
         }
-        else if(input_Telefone== "" || input_Telefone.length > 12 || !verificador_de_Numero(input_Telefone)){
+        else if(input_Telefone.value== "" || input_Telefone.value.length > 12 || !verificador_de_Numero(input_Telefone.value)){
             Label_erro.innerText = "Telefone Invalido"
         }
-        else if(input_Data_nascimento== "" || input_Data_nascimento.length > 8){
+        else if(input_Data_nascimento.value== "" || input_Data_nascimento.value.length > 8){
             Label_erro.innerText = "Data de Nascimento Invalida"
         }
-        else if(input_Cep== "" || input_Cep.length > 8 || !verificador_de_Numero(input_Cep)){
+        else if(input_Cep.value== "" || input_Cep.value.length > 8 || !verificador_de_Numero(input_Cep.value)){
             Label_erro.innerText = "Cep Invalido"
         }
-        else if(input_Logradouro== "" ){
+        else if(input_Logradouro.value== "" ){
             Label_erro.innerText = "Logradouro Invalido"
         }
-        else if(input_Bairro== "" ){
+        else if(input_Bairro.value== "" ){
             Label_erro.innerText = "Bairro Invalido"
         }
-        else if(input_Cidade== ""){
+        else if(input_Cidade.value== ""){
             Label_erro.innerText = "Cidade Invalida"
         }
-        else if(input_Estado== ""){
+        else if(input_Estado.value== ""){
             Label_erro.innerText = "Estado Invalido"
         }
-        else if(input_Complemento== ""){
+        else if(input_Complemento.value== ""){
             Label_erro.innerText = "Complemento Invalido"
         }
         else{
@@ -471,6 +474,7 @@ let Atualizar_cliente = async (id, Nome, Cpf, Email,Telefone,Data_nascimento,Cep
             });
             alert("atualizado com sucesso!")
             dialog_att.close()
+            location.reload()
         }
 
     })
