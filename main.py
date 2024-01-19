@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 import models
 from database import engine
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,11 +7,17 @@ from typing import Annotated
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
-
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
 from models import Endereco, Cliente,Cliente_Request
 
+
 app = FastAPI()
+
+templates = Jinja2Templates(directory='Page')
+
+app.mount("/static", StaticFiles(directory="Page"), name="static")
 
 origins = [
     "http://localhost",
@@ -30,6 +36,11 @@ app.add_middleware(
 models.Base.metadata.create_all(bind=engine)
 
 db_dependency = Annotated[Session, Depends(get_db)]
+
+@app.get("/", description="Retorna a pagina Html para por em pratica o CRUD")
+async def page (Request: Request):
+    return templates.TemplateResponse('index.html', {"request": Request})
+
 
 @app.get('/Cliente',
          description='Retorna todos os Clientes')
