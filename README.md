@@ -9,5 +9,3 @@ Este é um projeto, desenvolvido utilizando HTML, CSS, JavaScript e Python. No b
 * 5 - Para encerrar a execução, pressione Ctrl + C no terminal e a aplicação será encerrada.
 
 *Observação*: Para visualizar as rotas da API, utilize o link gerado pelo Uvicorn e adicione "/docs" no final, por exemplo: http://127.0.0.1:8000/docs.
-
-Desde já agradeço pela oportunidade e pelo reconhecimento!
